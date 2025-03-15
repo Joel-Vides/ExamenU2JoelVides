@@ -1,0 +1,151 @@
+[
+  {
+    "ContainingType": "Examen2POO.API.Controllers.EmpleadosController",
+    "Method": "GetList",
+    "RelativePath": "api/empleados",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Examen2POO.API.Dtos.Common.ResponseDto\u00601[[System.Collections.Generic.List\u00601[[Examen2POO.API.Dtos.Empleados.EmpleadosCreateDto, Examen2POO.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Examen2POO.API.Controllers.EmpleadosController",
+    "Method": "Post",
+    "RelativePath": "api/empleados",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Examen2POO.API.Dtos.Empleados.EmpleadosCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Examen2POO.API.Dtos.Common.ResponseDto\u00601[[Examen2POO.API.Dtos.Empleados.EmpleadosActionResponseDto, Examen2POO.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Examen2POO.API.Controllers.EmpleadosController",
+    "Method": "GetOne",
+    "RelativePath": "api/empleados/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Examen2POO.API.Dtos.Common.ResponseDto\u00601[[Examen2POO.API.Dtos.Empleados.EmpleadosCreateDto, Examen2POO.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Examen2POO.API.Controllers.EmpleadosController",
+    "Method": "Edit",
+    "RelativePath": "api/empleados/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Examen2POO.API.Dtos.Empleados.EmpleadosEditDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Examen2POO.API.Dtos.Empleados.EmpleadosActionResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Examen2POO.API.Controllers.EmpleadosController",
+    "Method": "Delete",
+    "RelativePath": "api/empleados/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Examen2POO.API.Dtos.Empleados.EmpleadosActionResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Examen2POO.API.Controllers.PlanillasController",
+    "Method": "GetList",
+    "RelativePath": "api/planillas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Examen2POO.API.Dtos.Common.ResponseDto\u00601[[System.Collections.Generic.List\u00601[[Examen2POO.API.Dtos.Planillas.PlanillaCreateDto, Examen2POO.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]
