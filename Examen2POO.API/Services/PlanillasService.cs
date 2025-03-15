@@ -37,6 +37,29 @@ namespace Examen2POO.API.Services
 
         }
 
+        public async Task<ResponseDto<PlanillasDto>> GetOneById(Guid id)
+        {
+            var planillaEntity = await _context.Planillas.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (planillaEntity is null)
+            {
+                return new ResponseDto<PlanillasDto>
+                {
+                    StatusCode = Constants.HttpStatusCode.NOT_FOUND,
+                    Status = false,
+                    Message = "Registro no Encontrado"
+                };
+            }
+
+            return new ResponseDto<PlanillasDto>
+            {
+                StatusCode = Constants.HttpStatusCode.OK,
+                Status = true,
+                Message = "Registro Encontrado Correctamente",
+                Data = _mapper.Map<PlanillasDto>(planillaEntity)
+            };
+        }
+
         public async Task<ResponseDto<PlanillasActionResponseDto>> CreateAsync(PlanillaCreateDto dto)
         {
             var planillasEntity = _mapper.Map<PlanillaEntity>(dto);
@@ -49,6 +72,74 @@ namespace Examen2POO.API.Services
                 StatusCode = Constants.HttpStatusCode.OK,
                 Status = true,
                 Message = "Registro Creado Correctamente",
+                Data = _mapper.Map<PlanillasActionResponseDto>(planillasEntity)
+            };
+        }
+
+        public async Task<ResponseDto<PlanillasActionResponseDto>> EditAsync(PlanillasEditDto dto, Guid id)
+        {
+            {
+                var planillasEntity = await _context.Planillas.FirstOrDefaultAsync(x => x.Id == id);
+
+                if (planillasEntity is null)
+                {
+                    return new ResponseDto<PlanillasActionResponseDto>
+                    {
+                        StatusCode = Constants.HttpStatusCode.NOT_FOUND,
+                        Status = false,
+                        Message = "Registro no Encontrado"
+                    };
+                }
+
+                _mapper.Map<PlanillasEditDto, PlanillaEntity>(dto, planillasEntity);
+
+                _context.Planillas.Update(planillasEntity);
+                await _context.SaveChangesAsync();
+
+                return new ResponseDto<PlanillasActionResponseDto>
+                {
+                    StatusCode = Constants.HttpStatusCode.OK,
+                    Status = true,
+                    Message = "Registro Editado Correctamente",
+                    Data = _mapper.Map<PlanillasActionResponseDto>(planillasEntity)
+                };
+            }
+        }
+
+        public async Task<ResponseDto<PlanillasActionResponseDto>> DeleteAsync(Guid id)
+        {
+            var planillasEntity = await _context.Planillas.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (planillasEntity is null)
+            {
+                return new ResponseDto<PlanillasActionResponseDto>
+                {
+                    StatusCode = Constants.HttpStatusCode.NOT_FOUND,
+                    Status = false,
+                    Message = "Registro no Encontrado"
+                };
+            }
+
+            var planillaDeEmpleado = await _context.Empleados.CountAsync(p => p.DatosPlanillas == id);
+
+            if (planillaDeEmpleado > 0)
+            {
+                return new ResponseDto<PlanillasActionResponseDto>
+                {
+                    StatusCode = Constants.HttpStatusCode.BAD_REQUEST,
+                    Status = false,
+                    Message = "No Hay Datos Relacionados"
+                };
+            }
+
+            _context.Planillas.Remove(planillasEntity);
+            await _context.SaveChangesAsync();
+
+            return new ResponseDto<PlanillasActionResponseDto>
+            {
+                StatusCode = Constants.HttpStatusCode.OK,
+                Status = true,
+                Message = "Registro Eliminado Correctamente",
                 Data = _mapper.Map<PlanillasActionResponseDto>(planillasEntity)
             };
         }

@@ -13,5 +13,7 @@ namespace Examen2POO.API.Database
         public DbSet<EmpleadosEntity> Empleados { get; set; }
 
         public DbSet<PlanillaEntity> Planillas { get; set; }
+
+        public DbSet<PlanillaEntity> DetallePlanillas { get; set; }
     }
 }

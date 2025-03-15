@@ -9,6 +9,10 @@ namespace Examen2POO.API.Dtos.Planillas
         [StringLength(15, MinimumLength = 3, ErrorMessage = "El Campo {0} debe Tener un Minimo de {2} y un Máximo de {1} Caracteres")]
         public string Periodo { get; set; }
 
+        [Display(Name = "Fecha de Creacion")]
+        [Required(ErrorMessage = "El Campo {0} es Requerido")]
+        public DateTime FechaCreacion { get; set; }
+
         [Display(Name = "Fecha de Pago")]
         [Required(ErrorMessage = "El Campo {0} es Requerido")]
         public DateTime FechaPago { get; set; }

@@ -147,5 +147,114 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "Examen2POO.API.Controllers.PlanillasController",
+    "Method": "Post",
+    "RelativePath": "api/planillas",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Examen2POO.API.Dtos.Planillas.PlanillaCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Examen2POO.API.Dtos.Common.ResponseDto\u00601[[Examen2POO.API.Dtos.Planillas.PlanillasActionResponseDto, Examen2POO.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Examen2POO.API.Controllers.PlanillasController",
+    "Method": "GetOne",
+    "RelativePath": "api/planillas/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Examen2POO.API.Dtos.Common.ResponseDto\u00601[[Examen2POO.API.Dtos.Planillas.PlanillaCreateDto, Examen2POO.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Examen2POO.API.Controllers.PlanillasController",
+    "Method": "Edit",
+    "RelativePath": "api/planillas/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Examen2POO.API.Dtos.Planillas.PlanillasEditDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Examen2POO.API.Dtos.Planillas.PlanillasActionResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Examen2POO.API.Controllers.PlanillasController",
+    "Method": "Delete",
+    "RelativePath": "api/planillas/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Examen2POO.API.Dtos.Planillas.PlanillasActionResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   }
 ]

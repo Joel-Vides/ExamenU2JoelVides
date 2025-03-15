@@ -65,6 +65,18 @@ namespace Examen2POO.API.Services
         {
             var empleadosEntity = _mapper.Map<EmpleadosEntity>(dto);
 
+            var planillaEntity = await _context.Planillas.FirstOrDefaultAsync(o => o.Id == dto.DatosPlanillas);
+
+            if (planillaEntity is null)
+            {
+                return new ResponseDto<EmpleadosActionResponseDto>
+                {
+                    StatusCode = Constants.HttpStatusCode.BAD_REQUEST,
+                    Status = false,
+                    Message = "No Existe la Planilla Ingresada en la Base de Datos"
+                };
+            }
+
             _context.Empleados.Add(empleadosEntity);
             await _context.SaveChangesAsync();
 
@@ -88,6 +100,18 @@ namespace Examen2POO.API.Services
                     StatusCode = Constants.HttpStatusCode.NOT_FOUND,
                     Status = false,
                     Message = "Registro no Encontrado"
+                };
+            }
+
+            var planillasEntity = await _context.Planillas.FirstOrDefaultAsync(o => o.Id == dto.DatosPlanillas);
+
+            if (planillasEntity is null)
+            {
+                return new ResponseDto<EmpleadosActionResponseDto>
+                {
+                    StatusCode = Constants.HttpStatusCode.BAD_REQUEST,
+                    Status = false,
+                    Message = "El Dueño no Existe"
                 };
             }
 

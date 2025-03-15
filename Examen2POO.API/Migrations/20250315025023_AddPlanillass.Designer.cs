@@ -3,6 +3,7 @@ using System;
 using Examen2POO.API.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Examen2POO.API.Migrations
 {
     [DbContext(typeof(EmpleadosDBContext))]
-    partial class EmpleadosDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250315025023_AddPlanillass")]
+    partial class AddPlanillass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.3");
@@ -31,10 +34,6 @@ namespace Examen2POO.API.Migrations
                     b.Property<decimal>("BaseSalary")
                         .HasColumnType("TEXT")
                         .HasColumnName("base_salary");
-
-                    b.Property<Guid?>("DatosPlanillas")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("planillas");
 
                     b.Property<string>("Departament")
                         .HasColumnType("TEXT")
@@ -69,8 +68,6 @@ namespace Examen2POO.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DatosPlanillas");
-
                     b.ToTable("Empleados");
                 });
 
@@ -101,15 +98,6 @@ namespace Examen2POO.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Planillas");
-                });
-
-            modelBuilder.Entity("Examen2POO.API.Database.Entities.EmpleadosEntity", b =>
-                {
-                    b.HasOne("Examen2POO.API.Database.Entities.PlanillaEntity", "Planillas")
-                        .WithMany()
-                        .HasForeignKey("DatosPlanillas");
-
-                    b.Navigation("Planillas");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Examen2POO.API.Database.Entities;
 using Examen2POO.API.Dtos.Empleados;
+using Examen2POO.API.Dtos.Planillas;
 
 namespace Examen2POO.API.Helpers
 {
@@ -12,6 +13,16 @@ namespace Examen2POO.API.Helpers
             CreateMap<EmpleadosEntity, EmpleadosActionResponseDto>();
             CreateMap<EmpleadosCreateDto, EmpleadosEntity>();
             CreateMap<EmpleadosEditDto, EmpleadosEntity>();
+
+            CreateMap<PlanillaEntity, PlanillasDto>();
+            CreateMap<PlanillaEntity, PlanillasActionResponseDto>();
+            CreateMap<PlanillaCreateDto, PlanillaEntity>();
+            CreateMap<PlanillasEditDto, PlanillaEntity>();
+
+            CreateMap<DetallePlanillaEntity, PlanillasDto>();
+            CreateMap<PlanillaEntity, PlanillasActionResponseDto>();
+            CreateMap<PlanillaCreateDto, PlanillaEntity>();
+            CreateMap<PlanillasEditDto, PlanillaEntity>();
         }
 
     }

@@ -41,6 +41,12 @@ namespace Examen2POO.API.Database.Entities
         [Column("active")]
         public bool Active { get; set; }
 
+        [Column("planillas")]
+        public Guid? DatosPlanillas { get; set; }
+
+        [ForeignKey(nameof(DatosPlanillas))]
+        public virtual PlanillaEntity Planillas { get; set; }
+
 
         //        Id(int, clave primaria)
         //● Nombre(string, requerido)

@@ -21,6 +21,8 @@ builder.Services.AddTransient<IEmpleadosService, EmpleadosService>();
 
 builder.Services.AddTransient<IPlanillaService, PlanillasService>();
 
+builder.Services.AddTransient<IDetallesPlanillaService, DetallePlanillaService>();
+
 builder.Services.AddOpenApi();
 
 var app = builder.Build();

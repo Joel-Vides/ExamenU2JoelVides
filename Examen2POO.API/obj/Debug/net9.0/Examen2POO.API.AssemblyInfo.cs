@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Examen2POO.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5a828e016e9dbe750fa035457d2437c915333f81")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b90e8e4d749c1a17d0424c3ecb12cdea82682c0b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Examen2POO.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Examen2POO.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

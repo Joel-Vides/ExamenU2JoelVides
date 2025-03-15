@@ -15,6 +15,10 @@ namespace Examen2POO.API.Database.Entities
         [Required]
         public string Periodo { get; set; }
 
+        [Column("fecha_creacion")]
+        [Required]
+        public DateTime FechaCreacion { get; set; }
+
         [Column("fecha_pago")]
         public DateTime FechaPago { get; set; }
 

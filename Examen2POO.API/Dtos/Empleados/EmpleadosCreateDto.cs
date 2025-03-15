@@ -42,6 +42,10 @@ namespace Examen2POO.API.Dtos.Empleados
         [Required(ErrorMessage = "El Campo {0} es Requerido")]
         public bool Active { get; set; }
 
+        [Display(Name = "Planillas")]
+        [Required(ErrorMessage = "El {0} es Requerido.")]
+        public Guid? DatosPlanillas { get; set; } = null;
+
 
 
         //        Id(int, clave primaria)

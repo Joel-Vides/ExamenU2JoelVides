@@ -1,4 +1,5 @@
 ﻿using Examen2POO.API.Dtos.Common;
+using Examen2POO.API.Dtos.Empleados;
 using Examen2POO.API.Dtos.Planillas;
 using Examen2POO.API.Services;
 using Examen2POO.API.Services.Interfaces;
@@ -29,10 +30,41 @@ namespace Examen2POO.API.Controllers
             });
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ResponseDto<PlanillaCreateDto>>> GetOne(Guid id)
+        {
+            var response = await _planillasService.GetOneById(id);
+
+            return StatusCode(response.StatusCode, response);
+        }
+
         [HttpPost]
         public async Task<ActionResult<ResponseDto<PlanillasActionResponseDto>>> Post([FromBody] PlanillaCreateDto dto)
         {
+            var reponse = await _planillasService.CreateAsync(dto);
 
+            return StatusCode(reponse.StatusCode, new
+            {
+                reponse.Status,
+                reponse.Message,
+                reponse.Data
+            });
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<PlanillasActionResponseDto>> Edit([FromBody] PlanillasEditDto dto, Guid id)
+        {
+            var response = await _planillasService.EditAsync(dto, id);
+
+            return StatusCode(response.StatusCode, response);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<PlanillasActionResponseDto>> Delete(Guid id)
+        {
+            var response = await _planillasService.DeleteAsync(id);
+
+            return StatusCode(response.StatusCode, response);
         }
     }
 }
